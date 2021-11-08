@@ -8,9 +8,7 @@ struct MarvelEndpoint {
     static func characters() -> Self {
         let ts = Date().timeIntervalSince1970.description
         let publicKey = Bundle.main.infoDictionary?["MARVEL_PUBLIC_KEY"] as? String
-        print(publicKey)
         let privateKey = Bundle.main.infoDictionary?["MARVEL_PRIVATE_KEY"] as? String
-        print(privateKey)
         let hash = Crypto.md5(string: "\(ts)\(privateKey!)\(publicKey!)")
         return MarvelEndpoint(
             path: "/characters",
