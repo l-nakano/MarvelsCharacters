@@ -1,33 +1,45 @@
-//
-//  MarvelsCharactersTests.swift
-//  MarvelsCharactersTests
-//
-//  Created by Lucas Yoshio Nakano on 08/11/21.
-//
-
+import Alamofire
 import XCTest
 @testable import MarvelsCharacters
 
 class MarvelsCharactersTests: XCTestCase {
+    
+    var sut: Session!
+    let networkMonitor = NetworkMonitor.shared
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        sut = AF
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        try super.tearDownWithError()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testApiSuccessfulConnection() throws {
+        try XCTSkipUnless(networkMonitor.isReachable, "Network connectivity needed for this test")
+        
+        // Dado
+        let marvelEndpoint = MarvelEndpoint.characters()
+        let url = marvelEndpoint.url
+        print(url)
+        let expectation = expectation(description: "Completion handler invoked")
+        var statusCode: Int?
+        var responseError: Error?
+        
+        // Quando
+        sut.request(url)
+            .response { httpResponse in
+                statusCode = httpResponse.response?.statusCode
+                responseError = httpResponse.error
+                expectation.fulfill()
+            }
+        wait(for: [expectation], timeout: 5)
+        
+        // Então
+        XCTAssertNil(responseError)
+        XCTAssertEqual(statusCode, 200)
     }
 
 }

@@ -18,6 +18,9 @@
 		49B326472739553200E8F841 /* MarvelsCharactersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B326462739553200E8F841 /* MarvelsCharactersTests.swift */; };
 		49B326512739553200E8F841 /* MarvelsCharactersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B326502739553200E8F841 /* MarvelsCharactersUITests.swift */; };
 		49B326532739553200E8F841 /* MarvelsCharactersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B326522739553200E8F841 /* MarvelsCharactersUITestsLaunchTests.swift */; };
+		49B326622739584400E8F841 /* MarvelEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B326612739584400E8F841 /* MarvelEndpoint.swift */; };
+		49B326652739586400E8F841 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B326642739586400E8F841 /* Crypto.swift */; };
+		49B3266827395A5800E8F841 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B3266727395A5800E8F841 /* NetworkMonitor.swift */; };
 		79C4ADC9D5CCB6E9FCE030D3 /* Pods_MarvelsCharacters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E57B81E11E9026191A41CE /* Pods_MarvelsCharacters.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +57,10 @@
 		49B3264C2739553200E8F841 /* MarvelsCharactersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelsCharactersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B326502739553200E8F841 /* MarvelsCharactersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelsCharactersUITests.swift; sourceTree = "<group>"; };
 		49B326522739553200E8F841 /* MarvelsCharactersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelsCharactersUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		49B326612739584400E8F841 /* MarvelEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEndpoint.swift; sourceTree = "<group>"; };
+		49B326642739586400E8F841 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		49B326662739598800E8F841 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		49B3266727395A5800E8F841 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		4CA1F8D2CFB6A1F862313DF6 /* Pods-MarvelsCharacters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelsCharacters.debug.xcconfig"; path = "Target Support Files/Pods-MarvelsCharacters/Pods-MarvelsCharacters.debug.xcconfig"; sourceTree = "<group>"; };
 		52FB1A398803AE6A6CB8D646 /* Pods-MarvelsCharactersTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelsCharactersTests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelsCharactersTests/Pods-MarvelsCharactersTests.debug.xcconfig"; sourceTree = "<group>"; };
 		911CDFDD98DE19ACA132261D /* Pods-MarvelsCharactersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelsCharactersTests.release.xcconfig"; path = "Target Support Files/Pods-MarvelsCharactersTests/Pods-MarvelsCharactersTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +101,7 @@
 		49B326232739553000E8F841 = {
 			isa = PBXGroup;
 			children = (
+				49B326662739598800E8F841 /* Config.xcconfig */,
 				49B3262E2739553000E8F841 /* MarvelsCharacters */,
 				49B326452739553200E8F841 /* MarvelsCharactersTests */,
 				49B3264F2739553200E8F841 /* MarvelsCharactersUITests */,
@@ -116,6 +124,8 @@
 		49B3262E2739553000E8F841 /* MarvelsCharacters */ = {
 			isa = PBXGroup;
 			children = (
+				49B326632739585100E8F841 /* Utilities */,
+				49B3265F2739583000E8F841 /* Service */,
 				49B3262F2739553000E8F841 /* AppDelegate.swift */,
 				49B326312739553000E8F841 /* SceneDelegate.swift */,
 				49B326332739553000E8F841 /* ViewController.swift */,
@@ -144,6 +154,31 @@
 			path = MarvelsCharactersUITests;
 			sourceTree = "<group>";
 		};
+		49B3265F2739583000E8F841 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				49B326602739583800E8F841 /* Endpoint */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		49B326602739583800E8F841 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				49B326612739584400E8F841 /* MarvelEndpoint.swift */,
+			);
+			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		49B326632739585100E8F841 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				49B326642739586400E8F841 /* Crypto.swift */,
+				49B3266727395A5800E8F841 /* NetworkMonitor.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		C50E77CD61C687337048B622 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +199,6 @@
 				52FB1A398803AE6A6CB8D646 /* Pods-MarvelsCharactersTests.debug.xcconfig */,
 				911CDFDD98DE19ACA132261D /* Pods-MarvelsCharactersTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -408,8 +442,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				49B326342739553000E8F841 /* ViewController.swift in Sources */,
+				49B3266827395A5800E8F841 /* NetworkMonitor.swift in Sources */,
 				49B326302739553000E8F841 /* AppDelegate.swift in Sources */,
+				49B326652739586400E8F841 /* Crypto.swift in Sources */,
 				49B326322739553000E8F841 /* SceneDelegate.swift in Sources */,
+				49B326622739584400E8F841 /* MarvelEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,6 +504,7 @@
 /* Begin XCBuildConfiguration section */
 		49B326542739553200E8F841 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49B326662739598800E8F841 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -528,6 +566,7 @@
 		};
 		49B326552739553200E8F841 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49B326662739598800E8F841 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
