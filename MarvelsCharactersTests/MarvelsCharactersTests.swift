@@ -23,7 +23,6 @@ class MarvelsCharactersTests: XCTestCase {
         // Dado
         let marvelEndpoint = MarvelEndpoint.characters()
         let url = marvelEndpoint.url
-        print(url)
         let expectation = expectation(description: "Completion handler invoked")
         var statusCode: Int?
         var responseError: Error?
@@ -40,6 +39,29 @@ class MarvelsCharactersTests: XCTestCase {
         // Então
         XCTAssertNil(responseError)
         XCTAssertEqual(statusCode, 200)
+    }
+    
+    func testFetchingCaracters() throws {
+        try XCTSkipUnless(networkMonitor.isReachable, "Network connectivity needed for this test")
+        
+        // Dado
+        let marvelService = MarvelService()
+        let expectation = expectation(description: "Completion handler invoked")
+        var characters: [Character]?
+        var fetchStatus: String?
+        
+        // Quando
+        marvelService.fetchCharacters { characterData in
+            characters = characterData.data.results
+            fetchStatus = characterData.status
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 5)
+        
+        //Então
+        XCTAssertEqual(fetchStatus, "Ok")
+        XCTAssertNotNil(characters)
+        XCTAssertEqual(characters?.count, 20)
     }
 
 }
