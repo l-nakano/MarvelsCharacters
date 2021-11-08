@@ -1,19 +1,21 @@
-//
-//  ViewController.swift
-//  MarvelsCharacters
-//
-//  Created by Lucas Yoshio Nakano on 08/11/21.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var charactersTableView: UITableView!
+    
+    let adapter = CharacterListAdapter()
+    let charactersRepository = CharactersRepository()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        charactersTableView.dataSource = adapter
+        charactersRepository.getCharacterList { characters in
+            self.adapter.characters = characters
+            self.charactersTableView.reloadData()
+        }
     }
-
 
 }
 
