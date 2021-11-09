@@ -176,30 +176,54 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Wmr-1b-Zai">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QI-CJ-Cxk">
+                                <rect key="frame" x="46.5" y="759" width="33" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="&lt;">
+                                    <color key="baseForegroundColor" name="CorPrincipal"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="previousPageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="igG-G2-zWd"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Wmr-1b-Zai">
                                 <rect key="frame" x="129.5" y="761.5" width="155.5" height="26"/>
                                 <color key="pageIndicatorTintColor" name="CorPrincipal"/>
                                 <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQX-It-7Zq">
+                                <rect key="frame" x="335" y="759" width="33" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="&gt;">
+                                    <color key="baseForegroundColor" name="CorPrincipal"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="nextPageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iqe-XW-IK9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QQX-It-7Zq" firstAttribute="leading" secondItem="Wmr-1b-Zai" secondAttribute="trailing" constant="50" id="3lZ-QQ-uLh"/>
                             <constraint firstItem="tee-a7-iqP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="4Ad-BV-nWM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Wmr-1b-Zai" secondAttribute="bottom" constant="24" id="8T9-5W-2kJ"/>
                             <constraint firstItem="hcK-DY-d8O" firstAttribute="leading" secondItem="89G-kp-ROP" secondAttribute="leading" id="AbV-eW-0l2"/>
                             <constraint firstItem="tee-a7-iqP" firstAttribute="top" secondItem="hcK-DY-d8O" secondAttribute="bottom" constant="12" id="CMZ-O0-dut"/>
+                            <constraint firstItem="Wmr-1b-Zai" firstAttribute="leading" secondItem="8QI-CJ-Cxk" secondAttribute="trailing" constant="50" id="E16-yS-mlk"/>
                             <constraint firstItem="2dH-ch-bSY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="F3P-Hk-6cv"/>
                             <constraint firstItem="Wmr-1b-Zai" firstAttribute="top" secondItem="tee-a7-iqP" secondAttribute="bottom" constant="18" id="ICE-bb-57L"/>
+                            <constraint firstItem="8QI-CJ-Cxk" firstAttribute="centerY" secondItem="Wmr-1b-Zai" secondAttribute="centerY" id="KUx-aJ-5BD"/>
                             <constraint firstItem="tee-a7-iqP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MDX-JL-Vu6"/>
                             <constraint firstItem="89G-kp-ROP" firstAttribute="leading" secondItem="2dH-ch-bSY" secondAttribute="leading" id="Nmg-OL-pfE"/>
+                            <constraint firstItem="QQX-It-7Zq" firstAttribute="centerY" secondItem="Wmr-1b-Zai" secondAttribute="centerY" id="NvR-U6-cBc"/>
                             <constraint firstItem="ZWE-Fh-gYi" firstAttribute="centerY" secondItem="2dH-ch-bSY" secondAttribute="centerY" id="RcM-Lu-zHl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tee-a7-iqP" secondAttribute="trailing" id="TGb-q1-lM2"/>
                             <constraint firstItem="tee-a7-iqP" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="X99-wn-0nL"/>
+                            <constraint firstItem="8QI-CJ-Cxk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="a7H-Iz-8WM"/>
                             <constraint firstItem="hcK-DY-d8O" firstAttribute="top" secondItem="89G-kp-ROP" secondAttribute="bottom" id="dAq-Ve-y42"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Wmr-1b-Zai" secondAttribute="trailing" constant="30" id="dVc-b3-5P2"/>
                             <constraint firstItem="89G-kp-ROP" firstAttribute="top" secondItem="2dH-ch-bSY" secondAttribute="bottom" constant="12" id="dd6-xC-3m3"/>
-                            <constraint firstItem="Wmr-1b-Zai" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="hwG-SY-o9k"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QQX-It-7Zq" secondAttribute="trailing" constant="30" id="lWg-R5-ofT"/>
                             <constraint firstItem="2dH-ch-bSY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="oyh-Vq-aOY"/>
                             <constraint firstItem="Wmr-1b-Zai" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="p1r-vC-5zc"/>
                             <constraint firstItem="ZWE-Fh-gYi" firstAttribute="leading" secondItem="2dH-ch-bSY" secondAttribute="trailing" id="vEf-Xm-yOi"/>
@@ -207,6 +231,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nextPageButton" destination="QQX-It-7Zq" id="PBV-Yg-aYA"/>
+                        <outlet property="pageControl" destination="Wmr-1b-Zai" id="PC5-b0-rzV"/>
                         <outlet property="personagem1ImageView" destination="jYQ-42-vUh" id="QQ0-Z7-lCZ"/>
                         <outlet property="personagem1Label" destination="lyK-Uv-mjo" id="R3M-Z7-dZn"/>
                         <outlet property="personagem2ImageView" destination="7Nw-m5-cwk" id="wyi-i7-S98"/>
@@ -215,6 +241,7 @@
                         <outlet property="personagem3Label" destination="JOf-eG-ueG" id="O1X-f5-Dsf"/>
                         <outlet property="personagem4ImageView" destination="kjj-GE-vTg" id="6zc-LI-GJI"/>
                         <outlet property="personagem4Label" destination="u4h-zd-8hj" id="d1U-8d-5sr"/>
+                        <outlet property="previousPageButton" destination="8QI-CJ-Cxk" id="h9L-Tf-Z9X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
