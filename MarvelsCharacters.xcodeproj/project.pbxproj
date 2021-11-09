@@ -10,6 +10,7 @@
 		3D9BC46051AECD2EDED84760 /* Pods_MarvelsCharactersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE6405976B987F0A7A84B12 /* Pods_MarvelsCharactersTests.framework */; };
 		41A086167F19B5D8FEA5BDCA /* Pods_MarvelsCharacters_MarvelsCharactersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9406FE956F31D035624E9A41 /* Pods_MarvelsCharacters_MarvelsCharactersUITests.framework */; };
 		492EE0332739D263005C48EF /* CharactersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 492EE0322739D263005C48EF /* CharactersRepository.swift */; };
+		496761B0273AC2370005273B /* CharactersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496761AF273AC2370005273B /* CharactersViewModel.swift */; };
 		49B326302739553000E8F841 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B3262F2739553000E8F841 /* AppDelegate.swift */; };
 		49B326322739553000E8F841 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B326312739553000E8F841 /* SceneDelegate.swift */; };
 		49B326342739553000E8F841 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49B326332739553000E8F841 /* ViewController.swift */; };
@@ -56,6 +57,7 @@
 		1EE6405976B987F0A7A84B12 /* Pods_MarvelsCharactersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelsCharactersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4527ABAED0BC32A4C79CCD /* Pods-MarvelsCharacters-MarvelsCharactersUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelsCharacters-MarvelsCharactersUITests.debug.xcconfig"; path = "Target Support Files/Pods-MarvelsCharacters-MarvelsCharactersUITests/Pods-MarvelsCharacters-MarvelsCharactersUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		492EE0322739D263005C48EF /* CharactersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRepository.swift; sourceTree = "<group>"; };
+		496761AF273AC2370005273B /* CharactersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModel.swift; sourceTree = "<group>"; };
 		49B3262C2739553000E8F841 /* MarvelsCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelsCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49B3262F2739553000E8F841 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		49B326312739553000E8F841 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		496761AD273AC2020005273B /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				496761AF273AC2370005273B /* CharactersViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		496761AE273AC2120005273B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				49B326332739553000E8F841 /* ViewController.swift */,
+				49B326352739553000E8F841 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		49B326232739553000E8F841 = {
 			isa = PBXGroup;
 			children = (
@@ -144,12 +163,12 @@
 			children = (
 				49B326762739767100E8F841 /* Fonts */,
 				49B3266B2739619900E8F841 /* Model */,
+				496761AE273AC2120005273B /* View */,
+				496761AD273AC2020005273B /* View Model */,
 				49B3265F2739583000E8F841 /* Service */,
 				49B326632739585100E8F841 /* Utilities */,
 				49B3262F2739553000E8F841 /* AppDelegate.swift */,
 				49B326312739553000E8F841 /* SceneDelegate.swift */,
-				49B326332739553000E8F841 /* ViewController.swift */,
-				49B326352739553000E8F841 /* Main.storyboard */,
 				49B326382739553200E8F841 /* Assets.xcassets */,
 				49B3263A2739553200E8F841 /* LaunchScreen.storyboard */,
 				49B3263D2739553200E8F841 /* Info.plist */,
@@ -496,6 +515,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				496761B0273AC2370005273B /* CharactersViewModel.swift in Sources */,
 				49B326342739553000E8F841 /* ViewController.swift in Sources */,
 				49B326722739651600E8F841 /* CharacterFecthResponse.swift in Sources */,
 				49B3266827395A5800E8F841 /* NetworkMonitor.swift in Sources */,

@@ -14,28 +14,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var previousPageButton: UIButton!
     @IBOutlet weak var nextPageButton: UIButton!
     
-    let charactersRepository = CharactersRepository()
-    var charactersList: [Character] = []
+    let charactersViewModel = CharactersViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        charactersRepository.getCharacterList { characters in
-            self.charactersList = characters
-            self.pageControl.numberOfPages = characters.count / 4
+        charactersViewModel.getCharactersList {
+            self.pageControl.numberOfPages = self.charactersViewModel.charactersList.count / 4
             self.updateView()
         }
     }
     
     func updateView() {
         self.personagem1ImageView.image = UIImage(systemName: "photo")
-        self.personagem1Label.text = charactersList[pageControl.currentPage * 4].name
+        self.personagem1Label.text = charactersViewModel.charactersList[pageControl.currentPage * 4].name
         self.personagem2ImageView.image = UIImage(systemName: "photo")
-        self.personagem2Label.text = charactersList[pageControl.currentPage * 4 + 1].name
+        self.personagem2Label.text = charactersViewModel.charactersList[pageControl.currentPage * 4 + 1].name
         self.personagem3ImageView.image = UIImage(systemName: "photo")
-        self.personagem3Label.text = charactersList[pageControl.currentPage * 4 + 2].name
+        self.personagem3Label.text = charactersViewModel.charactersList[pageControl.currentPage * 4 + 2].name
         self.personagem4ImageView.image = UIImage(systemName: "photo")
-        self.personagem4Label.text = charactersList[pageControl.currentPage * 4 + 3].name
+        self.personagem4Label.text = charactersViewModel.charactersList[pageControl.currentPage * 4 + 3].name
         
         switch pageControl.currentPage {
         case 0:
