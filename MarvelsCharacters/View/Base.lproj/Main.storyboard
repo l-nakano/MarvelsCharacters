@@ -47,6 +47,9 @@
                                 <rect key="frame" x="30" y="106" width="354" height="44.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingTextField:" destination="BYZ-38-t0r" eventType="editingChanged" id="zzZ-iA-axy"/>
+                                </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tee-a7-iqP">
                                 <rect key="frame" x="0.0" y="162.5" width="414" height="581"/>
@@ -242,6 +245,7 @@
                         <outlet property="personagem4ImageView" destination="kjj-GE-vTg" id="6zc-LI-GJI"/>
                         <outlet property="personagem4Label" destination="u4h-zd-8hj" id="d1U-8d-5sr"/>
                         <outlet property="previousPageButton" destination="8QI-CJ-Cxk" id="h9L-Tf-Z9X"/>
+                        <outlet property="searchQueryTextField" destination="hcK-DY-d8O" id="mJ0-Tw-bOB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
