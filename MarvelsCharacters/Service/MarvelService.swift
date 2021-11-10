@@ -39,4 +39,19 @@ final class MarvelService {
                 completion(characters)
             }
     }
+    
+    func fetchCharacterImage(path: String, extension: String, variant: ThumbnailVariant, completion: @escaping (Data?) -> Void) {
+        let url = path.replacingOccurrences(of: "http", with: "https") + "/" + "\(variant)" + "." + `extension`
+        AF.request(url)
+            .validate()
+            .responseData { response in
+                switch response.result {
+                case .success:
+                    print("Fetch Characters Image Validation Successful")
+                    completion(response.data)
+                case let .failure(error):
+                    print("Error fecthing characters: \(error)")
+                }
+            }
+    }
 }

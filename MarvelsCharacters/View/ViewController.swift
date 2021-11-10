@@ -57,7 +57,15 @@ class ViewController: UIViewController {
     
     func customizeCharacterCell(imageView: UIImageView, label: UILabel, index: Int) {
         if pageControl.currentPage * 4 + 1 + index <= charactersViewModel.charactersList.count {
-            imageView.image = UIImage(systemName: "photo")
+            self.activityIndicator.alpha = 1
+            self.activityIndicator.startAnimating()
+            charactersViewModel.getCharacterImageData(charactersViewModel.charactersList[pageControl.currentPage * 4 + index]) { data in
+                imageView.layer.cornerRadius = imageView.bounds.width / 2
+                imageView.layer.masksToBounds = true
+                imageView.image = UIImage(data: data)
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.alpha = 0
+            }
             label.text = charactersViewModel.charactersList[pageControl.currentPage * 4 + index].name
         } else {
             imageView.image = nil
@@ -99,20 +107,19 @@ class ViewController: UIViewController {
         let searchQueryText: String = searchQueryTextField.text ?? ""
         if !searchQueryText.isEmpty {
             charactersViewModel.filteredCharacters(by: searchQueryText)
+            if charactersViewModel.charactersList.isEmpty {
+                self.activityIndicator.alpha = 1
+                self.activityIndicator.startAnimating()
+                charactersViewModel.getCharactersStartingWith(searchQueryText) {
+                    self.updateView()
+                    self.activityIndicator.stopAnimating()
+                    self.activityIndicator.alpha = 0
+                }
+            }
         } else {
             charactersViewModel.resetFilteredCharactersList()
         }
         updateView()
-        
-        if charactersViewModel.charactersList.isEmpty {
-            self.activityIndicator.alpha = 1
-            self.activityIndicator.startAnimating()
-            charactersViewModel.getCharactersStartingWith(searchQueryText) {
-                self.updateView()
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.alpha = 0
-            }
-        }
     }
     
 }

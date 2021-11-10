@@ -25,6 +25,15 @@ final class CharactersViewModel {
         }
     }
     
+    func getCharacterImageData(_ character: Character, completion: @escaping (Data) -> Void) {
+        charactersRepository.getCharacterImage(
+            path: character.thumbnail.path,
+            extension: character.thumbnail.extension,
+            variant: .standard_medium) { data in
+                completion(data!)
+            }
+    }
+    
     func numbersOfPagesNeeded() -> Int {
         return Int(ceil(Double(charactersList.count) / 4))
     }
