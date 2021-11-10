@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     }
     
     func showHidePageControllers() {
-        if charactersViewModel.charactersList.count > 0 {
+        if charactersViewModel.charactersList.count > 4 {
             switch pageControl.currentPage {
             case 0:
                 previousPageButton.alpha = 0
