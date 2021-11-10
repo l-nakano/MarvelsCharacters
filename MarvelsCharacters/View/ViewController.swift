@@ -14,14 +14,33 @@ class ViewController: UIViewController {
     @IBOutlet weak var previousPageButton: UIButton!
     @IBOutlet weak var nextPageButton: UIButton!
     @IBOutlet weak var searchQueryTextField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let charactersViewModel = CharactersViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initialConfiguration()
+        updateViewWithCharacters()
+    }
+    
+    func initialConfiguration() {
+        personagem1Label.text = ""
+        personagem2Label.text = ""
+        personagem3Label.text = ""
+        personagem4Label.text = ""
+        previousPageButton.alpha = 0
+        nextPageButton.alpha = 0
+        pageControl.numberOfPages = 0
+    }
+    
+    func updateViewWithCharacters() {
+        activityIndicator.startAnimating()
         charactersViewModel.getCharactersList {
             self.updateView()
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.alpha = 0
         }
     }
     
@@ -83,12 +102,17 @@ class ViewController: UIViewController {
         } else {
             charactersViewModel.resetFilteredCharactersList()
         }
+        updateView()
+        
         if charactersViewModel.charactersList.isEmpty {
+            self.activityIndicator.alpha = 1
+            self.activityIndicator.startAnimating()
             charactersViewModel.getCharactersStartingWith(searchQueryText) {
                 self.updateView()
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.alpha = 0
             }
         }
-        updateView()
     }
     
 }
