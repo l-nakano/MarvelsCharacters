@@ -47,16 +47,21 @@ class ViewController: UIViewController {
     }
     
     func showHidePageControllers() {
-        switch pageControl.currentPage {
-        case 0:
+        if charactersViewModel.charactersList.count > 0 {
+            switch pageControl.currentPage {
+            case 0:
+                previousPageButton.alpha = 0
+                nextPageButton.alpha = 1
+            case pageControl.numberOfPages - 1:
+                previousPageButton.alpha = 1
+                nextPageButton.alpha = 0
+            default:
+                previousPageButton.alpha = 1
+                nextPageButton.alpha = 1
+            }
+        } else {
             previousPageButton.alpha = 0
-            nextPageButton.alpha = 1
-        case pageControl.numberOfPages - 1:
-            previousPageButton.alpha = 1
             nextPageButton.alpha = 0
-        default:
-            previousPageButton.alpha = 1
-            nextPageButton.alpha = 1
         }
     }
     
@@ -77,6 +82,11 @@ class ViewController: UIViewController {
             charactersViewModel.filteredCharacters(by: searchQueryText)
         } else {
             charactersViewModel.resetFilteredCharactersList()
+        }
+        if charactersViewModel.charactersList.isEmpty {
+            charactersViewModel.getCharactersStartingWith(searchQueryText) {
+                self.updateView()
+            }
         }
         updateView()
     }

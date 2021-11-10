@@ -18,6 +18,13 @@ final class CharactersViewModel {
         }
     }
     
+    func getCharactersStartingWith(_ string: String, completion: @escaping () -> Void) {
+        charactersRepository.getCharactersListStartingWith(string) { characters in
+            self.charactersList = characters
+            completion()
+        }
+    }
+    
     func numbersOfPagesNeeded() -> Int {
         return Int(ceil(Double(charactersList.count) / 4))
     }

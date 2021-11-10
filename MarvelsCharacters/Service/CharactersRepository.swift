@@ -9,9 +9,9 @@ final class CharactersRepository {
         }
     }
     
-    func getCharactersCount(completion: @escaping (Int) -> Void) {
-        service.fetchCharacters { characterResponse in
-            completion(characterResponse.data.count)
+    func getCharactersListStartingWith(_ string: String, completion: @escaping ([Character]) -> Void) {
+        service.fetchCharactersStartingWith(string) { characterResponse in
+            completion(characterResponse.data.results)
         }
     }
 }
