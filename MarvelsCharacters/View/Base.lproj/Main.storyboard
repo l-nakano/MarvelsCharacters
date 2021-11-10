@@ -25,6 +25,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ost-EI-yhh">
+                                <rect key="frame" x="188.5" y="434.5" width="37" height="37"/>
+                                <color key="color" name="CorPrincipal"/>
+                            </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BUSCA MARVEL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dH-ch-bSY">
                                 <rect key="frame" x="30" y="56" width="120" height="19"/>
                                 <fontDescription key="fontDescription" name="Roboto-Black" family="Roboto" pointSize="16"/>
@@ -47,6 +51,9 @@
                                 <rect key="frame" x="30" y="106" width="354" height="44.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="editingTextField:" destination="BYZ-38-t0r" eventType="editingChanged" id="zzZ-iA-axy"/>
+                                </connections>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tee-a7-iqP">
                                 <rect key="frame" x="0.0" y="162.5" width="414" height="581"/>
@@ -212,6 +219,7 @@
                             <constraint firstItem="tee-a7-iqP" firstAttribute="top" secondItem="hcK-DY-d8O" secondAttribute="bottom" constant="12" id="CMZ-O0-dut"/>
                             <constraint firstItem="Wmr-1b-Zai" firstAttribute="leading" secondItem="8QI-CJ-Cxk" secondAttribute="trailing" constant="50" id="E16-yS-mlk"/>
                             <constraint firstItem="2dH-ch-bSY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="F3P-Hk-6cv"/>
+                            <constraint firstItem="ost-EI-yhh" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="GlJ-pg-4QQ"/>
                             <constraint firstItem="Wmr-1b-Zai" firstAttribute="top" secondItem="tee-a7-iqP" secondAttribute="bottom" constant="18" id="ICE-bb-57L"/>
                             <constraint firstItem="8QI-CJ-Cxk" firstAttribute="centerY" secondItem="Wmr-1b-Zai" secondAttribute="centerY" id="KUx-aJ-5BD"/>
                             <constraint firstItem="tee-a7-iqP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="MDX-JL-Vu6"/>
@@ -226,11 +234,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QQX-It-7Zq" secondAttribute="trailing" constant="30" id="lWg-R5-ofT"/>
                             <constraint firstItem="2dH-ch-bSY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="oyh-Vq-aOY"/>
                             <constraint firstItem="Wmr-1b-Zai" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="p1r-vC-5zc"/>
+                            <constraint firstItem="ost-EI-yhh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="tIX-KU-g2n"/>
                             <constraint firstItem="ZWE-Fh-gYi" firstAttribute="leading" secondItem="2dH-ch-bSY" secondAttribute="trailing" id="vEf-Xm-yOi"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="hcK-DY-d8O" secondAttribute="trailing" constant="30" id="xad-OD-tEq"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="ost-EI-yhh" id="Fk8-Ak-Bgl"/>
                         <outlet property="nextPageButton" destination="QQX-It-7Zq" id="PBV-Yg-aYA"/>
                         <outlet property="pageControl" destination="Wmr-1b-Zai" id="PC5-b0-rzV"/>
                         <outlet property="personagem1ImageView" destination="jYQ-42-vUh" id="QQ0-Z7-lCZ"/>
@@ -242,6 +252,7 @@
                         <outlet property="personagem4ImageView" destination="kjj-GE-vTg" id="6zc-LI-GJI"/>
                         <outlet property="personagem4Label" destination="u4h-zd-8hj" id="d1U-8d-5sr"/>
                         <outlet property="previousPageButton" destination="8QI-CJ-Cxk" id="h9L-Tf-Z9X"/>
+                        <outlet property="searchQueryTextField" destination="hcK-DY-d8O" id="mJ0-Tw-bOB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
