@@ -86,6 +86,8 @@ class MarvelsCharactersTests: XCTestCase {
         XCTAssertEqual(fetchStatus, "Ok")
         XCTAssertNotNil(characters)
         XCTAssertEqual(characters?.count, 20)
+        XCTAssertEqual(characters?.first?.thumbnail.path, "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784")
+        XCTAssertEqual(characters?.first?.thumbnail.extension, "jpg")
     }
     
     func testFetchingCharactersStartingWith() throws {
@@ -109,6 +111,28 @@ class MarvelsCharactersTests: XCTestCase {
         XCTAssertEqual(fetchStatus, "Ok")
         XCTAssertNotNil(characters)
         XCTAssertEqual(characters?.count, 13)
+    }
+    
+    func testFetchingCharacterImage() throws {
+        try XCTSkipUnless(networkMonitor.isReachable, "Network connectivity needed for this test")
+        
+        // Dado
+        let marvelService = MarvelService()
+        let expectation = expectation(description: "Completion handler invoked")
+        var characterImage: Data?
+        
+        // Quando
+        marvelService.fetchCharacterImage(
+            path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",
+            extension: "jpg",
+            variant: .standard_small) { image in
+                characterImage = image
+                expectation.fulfill()
+            }
+        wait(for: [expectation], timeout: 5)
+        
+        //Então
+        XCTAssertNotNil(characterImage)
     }
 
 }

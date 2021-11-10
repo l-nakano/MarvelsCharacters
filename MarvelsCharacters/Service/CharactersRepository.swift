@@ -14,4 +14,10 @@ final class CharactersRepository {
             completion(characterResponse.data.results)
         }
     }
+    
+    func getCharacterImage(path: String, extension: String, variant: ThumbnailVariant, completion: @escaping (Data?) -> Void) {
+        service.fetchCharacterImage(path: path, extension: `extension`, variant: variant) { data in
+            completion(data)
+        }
+    }
 }
